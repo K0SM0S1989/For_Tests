@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Лента новостей</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="container mt-5">
+    <div th:each="el : ${news_by_id}" class="alert alert-info mt-2">
+        <h1 th:text="${el.title}"/>
+        <p th:text="${el.text}"/>
+        Дата публикации: <p th:text="${el.timeStamp}"/>
+        <a th:href="'/api/update/' + ${el.id}" class="btn btn-warning">Редактировать</a><br><br>
+        <form th:action="'/api/delete/' + ${el.id}" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+

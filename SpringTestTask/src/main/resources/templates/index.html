@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Лента новостей</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<div class="container mt-5">
+    <div th:each="el : ${list_news}" class="alert alert-info mt-2">
+        <h3 th:text="${el.title}"></h3>
+        <a th:href="'/api/choice/' + ${el.id}" class="btn btn-warning">Детальнее</a>
+    </div>
+
+</div>
+
+</body>
+</html>

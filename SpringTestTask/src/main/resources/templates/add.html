@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Лента новостей</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Добавление новости</h1>
+    <form action="/api/add" method="post">
+        <input type="text" name="title" placeholder="Введите название статьи" class="form-control"><br>
+        <textarea name="text" placeholder="Введите полный текст статьи" class="form-control"></textarea><br>
+       Категория: <select name="categoryNames">
+            <option value="EMPTY">Значение не выбрано</option>
+            <option value="WORLD">Мир</option>
+            <option value="SPORT">Спорт</option>
+            <option value="CINEMA">Кино</option>
+            <option value="CARS" >Авто</option>
+            <option value="GAMES">Игры</option>
+        </select>
+        <button type="submit" class="btn btn-success">Добавить статью</button>
+    </form>
+
+</div>
+
+
+</body>
+</html>
+

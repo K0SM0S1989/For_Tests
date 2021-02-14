@@ -1,0 +1,1 @@
+alter table news add constraint FK6itmfjj4ma8lfpj10jx24mhvx foreign key (category_id) references categories (id);

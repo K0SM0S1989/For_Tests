@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Редактирование статьи</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5 mb-5">
+    <h1>Редактирование статьи</h1>
+    <div th:each="el : ${news_for_update}">
+        <form  method="post">
+            <input type="text" th:value="${el.title}" name="title" placeholder="Введите название статьи" class="form-control"><br>
+            <textarea name="text" placeholder="Введите полный текст статьи" class="form-control" th:text="${el.text}" /><br>
+            Категория: <select name="categoryNames">
+            <option value="EMPTY">Значение не выбрано</option>
+            <option value="WORLD">Мир</option>
+            <option value="SPORT">Спорт</option>
+            <option value="CINEMA">Кино</option>
+            <option value="CARS" >Авто</option>
+            <option value="GAMES">Игры</option>
+        </select>
+            <button type="submit" class="btn btn-success">Обновить</button>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>
+
